@@ -1,0 +1,19 @@
+package views
+
+import (
+    . "go_server/models"
+)
+
+templ CoursesPage(courses []*Course) {
+    for _, course := range courses {
+        <div>
+            <h3>
+                { course.Name }
+            </h3>
+            <a 
+                href={ templ.URL(course.URL) }>
+                course url
+            </a>
+        </div>
+    } 
+}
