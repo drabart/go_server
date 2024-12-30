@@ -1,0 +1,25 @@
+package views
+
+templ LoginForm(loginError, nickname string) {
+    if loginError != "" {
+        <div style="color: red">
+            { loginError }
+        </div>
+    }
+    <form method="POST" action="/login">
+        <label for="nick">Nickname</label><br>
+        <input type="text" id="nick" name="nick" required maxlength="50" autocomplete="username" value={ nickname }><br>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password" required autocomplete="current-password"><br>
+        <input type="submit" value="Login">
+    </form>
+}
+
+templ Login(loginError, nickname string) {
+    <!DOCTYPE html>
+    <html lang="en">
+        <body>
+            @LoginForm(loginError, nickname)
+        </body>
+    </html>
+}
